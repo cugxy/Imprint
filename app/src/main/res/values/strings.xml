@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Imprint</string>
+    <string name="storage_permission_confirmation">获取外部存储权限</string>
+    <string name="storage_permission_not_granted"></string>
+    <string name="location_permission_confirmation"></string>
+    <string name="location_permission_not_granted"></string>
+    <string name="phone_state_permission_confirmation"></string>
+    <string name="phone_state_permission_not_granted"></string>
+</resources>
