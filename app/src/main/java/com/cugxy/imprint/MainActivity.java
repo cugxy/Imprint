@@ -12,6 +12,8 @@ import com.amap.api.maps.AMap;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.UiSettings;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     private final static String TAG = "MainActivity";
 
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         mMapView.onCreate(savedInstanceState);
 
         initMap();
+        initMarkersOnMap();
     }
 
     private void initMap() {
@@ -54,8 +57,6 @@ public class MainActivity extends AppCompatActivity {
         mUiSettings.setMyLocationButtonEnabled(true);
         mAMap.setMyLocationEnabled(true);
         mUiSettings.setScaleControlsEnabled(true);
-
-
     }
 
     @Override
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
         requestLocationPermission();
         requestExternalStoragePermission();
-
+        requestPhoneStatePermission();
     }
     /**
      * 请求外部存储权限
@@ -165,5 +166,17 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         //在activity执行onSaveInstanceState时执行mMapView.onSaveInstanceState (outState)，保存地图当前的状态
         mMapView.onSaveInstanceState(outState);
+    }
+
+    private void initMarkersOnMap() {
+        ArrayList<MarkerInfo> markerInfos = AlbumReadUtil.getAllPhotoInfo();
+        for (MarkerInfo markerInfo : markerInfos) {
+            double lat = markerInfo.getLatitude();
+            double lng = markerInfo.getLongitude();
+            // 转换成 gcj 坐标系下经纬度
+
+            // BASE64 转换成 Image
+
+        }
     }
 }
